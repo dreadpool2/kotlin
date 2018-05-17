@@ -32,6 +32,7 @@ import org.jetbrains.kotlin.cli.jvm.K2JVMCompiler;
 import org.jetbrains.kotlin.cli.metadata.K2MetadataCompiler;
 import org.jetbrains.kotlin.config.KotlinCompilerVersion;
 import org.jetbrains.kotlin.metadata.jvm.deserialization.JvmMetadataVersion;
+import org.jetbrains.kotlin.preloading.CommandLineArgumentsPreprocessor;
 import org.jetbrains.kotlin.test.CompilerTestUtil;
 import org.jetbrains.kotlin.test.InTextDirectivesUtils;
 import org.jetbrains.kotlin.test.KotlinTestUtils;
@@ -43,7 +44,9 @@ import org.junit.Assert;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class AbstractCliTest extends TestCaseWithTmpdir {
     private static final String TESTDATA_DIR = "$TESTDATA_DIR$";
@@ -182,26 +185,42 @@ public abstract class AbstractCliTest extends TestCaseWithTmpdir {
     @NotNull
     private static List<String> readArgs(@NotNull String argsFilePath, @NotNull String tempDir) {
         List<String> lines = FilesKt.readLines(new File(argsFilePath), Charsets.UTF_8);
+        return CollectionsKt.flatMap(lines, arg -> readArgExpandingIfNeeded(argsFilePath, tempDir, arg));
+    }
 
-        return CollectionsKt.mapNotNull(lines, arg -> {
-            if (arg.isEmpty()) {
-                return null;
-            }
+    private static Iterable<? extends String> readArgExpandingIfNeeded(@NotNull String argsFilePath, @NotNull String tempDir, String arg) {
+        if (arg.isEmpty()) {
+            return CollectionsKt.emptyList();
+        }
 
-            // Do not replace ':' after '\' (used in compiler plugin tests)
-            String argsWithColonsReplaced = arg
-                    .replace("\\:", "$COLON$")
-                    .replace(":", File.pathSeparator)
-                    .replace("$COLON$", ":");
+        // Note that we first need to replace test paths ($TESTDIR$ and stuff) in non-expanded argument (because path to argfile uses
+        // test paths), and then in the expanded arguments too (because argfiles themselves contain test paths)
+        List<String> possiblyExpanded = Arrays.asList(CommandLineArgumentsPreprocessor.preprocessArguments(
+                new String[]{replaceTestPaths(argsFilePath, tempDir, arg)})
+        );
 
-            return argsWithColonsReplaced
-                    .replace("$TEMP_DIR$", tempDir)
-                    .replace(TESTDATA_DIR, new File(argsFilePath).getParent())
-                    .replace(
-                            "$FOREIGN_ANNOTATIONS_DIR$",
-                            new File(AbstractForeignAnnotationsTestKt.getFOREIGN_ANNOTATIONS_SOURCES_PATH()).getPath()
-                    );
-        });
+        return possiblyExpanded.stream()
+                .map(expandedArg -> {
+                    // Do not replace ':' after '\' (used in compiler plugin tests)
+                    String argsWithColonsReplaced = expandedArg
+                            .replace("\\:", "$COLON$")
+                            .replace(":", File.pathSeparator)
+                            .replace("$COLON$", ":");
+
+                    return replaceTestPaths(argsFilePath, tempDir, argsWithColonsReplaced);
+
+                })
+                .collect(Collectors.toList());
+    }
+
+    private static String replaceTestPaths(@NotNull String argsFilePath, @NotNull String tempDir, String argsWithColonsReplaced) {
+        return argsWithColonsReplaced
+                .replace("$TEMP_DIR$", tempDir)
+                .replace(TESTDATA_DIR, new File(argsFilePath).getParent())
+                .replace(
+                        "$FOREIGN_ANNOTATIONS_DIR$",
+                        new File(AbstractForeignAnnotationsTestKt.getFOREIGN_ANNOTATIONS_SOURCES_PATH()).getPath()
+                );
     }
 
     protected void doJvmTest(@NotNull String fileName) {

@@ -53,7 +53,9 @@ public class Preloader {
     private static void run(String[] args) throws Exception {
         final long startTime = System.nanoTime();
 
-        final Options options = parseOptions(args);
+        String[] preprocessedArgs = CommandLineArgumentsPreprocessor.preprocessArguments(args);
+
+        final Options options = parseOptions(preprocessedArgs);
 
         ClassLoader classLoader = createClassLoader(options);
 
@@ -266,9 +268,13 @@ public class Preloader {
         }
     }
 
-    private static class PreloaderException extends RuntimeException {
+    public static class PreloaderException extends RuntimeException {
         public PreloaderException(String message) {
             super(message);
+        }
+
+        public PreloaderException(String message, Throwable cause) {
+            super(message, cause);
         }
     }
 
