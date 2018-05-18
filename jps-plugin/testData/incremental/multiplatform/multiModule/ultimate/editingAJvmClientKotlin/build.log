@@ -1,4 +1,4 @@
-================ Step #1 =================
+================ Step #1 create new service =================
 
 Building ac
 Building bc
@@ -70,7 +70,7 @@ Building rJvmClient
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #2 =================
+================ Step #2 edit new service =================
 
 Building ac
 Building bc
@@ -146,7 +146,7 @@ Building rJvmClient
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #3 =================
+================ Step #3 delete new service =================
 
 Building ac
 Building bc

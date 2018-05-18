@@ -148,7 +148,7 @@ abstract class AbstractIncrementalJpsTest(
     private val mockConstantSearch: Callbacks.ConstantAffectionResolver?
         get() = MockJavaConstantSearch(workDir)
 
-    private fun build(scope: CompileScopeTestBuilder = CompileScopeTestBuilder.make().allModules()): MakeResult {
+    private fun build(scope: CompileScopeTestBuilder = CompileScopeTestBuilder.make().allModules(), name: String? = null): MakeResult {
         val workDirPath = FileUtil.toSystemIndependentName(workDir.absolutePath)
 
         val logger = MyLogger(workDirPath)
@@ -158,7 +158,14 @@ abstract class AbstractIncrementalJpsTest(
         projectDescriptor.project.setTestingContext(TestingContext(lookupTracker, logger))
 
         try {
-            val builder = IncProjectBuilder(projectDescriptor, BuilderRegistry.getInstance(), myBuildParams, CanceledStatus.NULL, mockConstantSearch, true)
+            val builder = IncProjectBuilder(
+                projectDescriptor,
+                BuilderRegistry.getInstance(),
+                myBuildParams,
+                CanceledStatus.NULL,
+                mockConstantSearch,
+                true
+            )
             val buildResult = BuildResult()
             builder.addMessageHandler(buildResult)
 
@@ -177,10 +184,20 @@ abstract class AbstractIncrementalJpsTest(
                                 .map { it.messageText }
                                 .map { it.replace("^.+:\\d+:\\s+".toRegex(), "").trim() }
                                 .joinToString("\n")
-                return MakeResult(logger.log + "$COMPILATION_FAILED\n" + errorMessages + "\n", true, null)
+                return MakeResult(
+                    logger.log + "$COMPILATION_FAILED\n" + errorMessages + "\n",
+                    true,
+                    null,
+                    name
+                )
             }
             else {
-                return MakeResult(logger.log, false, createMappingsDump(projectDescriptor, dummyCompileContext))
+                return MakeResult(
+                    logger.log,
+                    false,
+                    createMappingsDump(projectDescriptor, dummyCompileContext),
+                    name
+                )
             }
         }
         finally {
@@ -190,7 +207,7 @@ abstract class AbstractIncrementalJpsTest(
     }
 
     protected fun initialMake(): MakeResult {
-        val makeResult = build()
+        val makeResult = build(name = "initial")
 
         val initBuildLogFile = File(testDataDir, "init-build.log")
         if (initBuildLogFile.exists()) {
@@ -203,8 +220,8 @@ abstract class AbstractIncrementalJpsTest(
         return makeResult
     }
 
-    private fun make(): MakeResult {
-        return build()
+    private fun make(name: String?): MakeResult {
+        return build(name = name)
     }
 
     private fun rebuild(): MakeResult {
@@ -381,9 +398,12 @@ abstract class AbstractIncrementalJpsTest(
         return byteArrayOutputStream.toString()
     }
 
-    protected data class MakeResult(val log: String, val makeFailed: Boolean, val mappingsDump: String?) {
-        var name: String? = null
-    }
+    protected data class MakeResult(
+        val log: String,
+        val makeFailed: Boolean,
+        val mappingsDump: String?,
+        val name: String?
+    )
 
     private fun performModificationsAndMake(moduleNames: Set<String>?): List<MakeResult> {
         val results = arrayListOf<MakeResult>()
@@ -401,9 +421,8 @@ abstract class AbstractIncrementalJpsTest(
                 moduleNames.forEach { preProcessSources(File(workDir, "$it/src")) }
             }
 
-            val makeResult = make().also {
-                it.name = modificationNames?.getOrNull(index)
-            }
+            val name = modificationNames?.getOrNull(index)
+            val makeResult = make(name)
             results.add(makeResult)
         }
         return results

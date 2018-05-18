@@ -1,292 +1,4 @@
-================ Step #1 =================
-
-Building ac
-Building bc
-Building acServer
-Building bcServer
-Building acClient
-Building bcClient
-Building raJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJsServer
-Compiling files:
-  bJsServer/src/serviceBJsServerNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Exit code: OK
-------------------------------------------
-Building rJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJsClient
-Compiling files:
-  bJsClient/src/serviceBJsClientNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Exit code: OK
-------------------------------------------
-Building rJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJvmServer
-Compiling files:
-  bJvmServer/src/serviceBJvmServerNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Exit code: OK
-------------------------------------------
-Compiling files:
-  bJvmServer/src/BJvmServerNewJavaClass.java
-End of files
-Cleaning output files:
-  out/production/bJvmServer/META-INF/bJvmServer.kotlin_module
-  out/production/bJvmServer/ServiceBJvmServerNewImplKt.class
-End of files
-Compiling files:
-  bJvmServer/src/serviceBJvmServerNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bc/src/serviceBcNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJvmClient
-Compiling files:
-  bJvmClient/src/serviceBJvmClientNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Exit code: OK
-------------------------------------------
-Compiling files:
-  bJvmClient/src/BJvmClientNewJavaClass.java
-End of files
-Cleaning output files:
-  out/production/bJvmClient/META-INF/bJvmClient.kotlin_module
-  out/production/bJvmClient/ServiceBJvmClientNewImplKt.class
-End of files
-Compiling files:
-  bJvmClient/src/serviceBJvmClientNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bc/src/serviceBcNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-
-================ Step #2 =================
-
-Building ac
-Building bc
-Building acServer
-Building bcServer
-Building acClient
-Building bcClient
-Building raJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJsServer
-Cleaning output files:
-  out/production/bJsServer/bJsServer.js
-  out/production/bJsServer/bJsServer.meta.js
-  out/production/bJsServer/bJsServer/root-package.kjsm
-End of files
-Compiling files:
-  bJsServer/src/serviceBJsServerNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bJsServer/src/serviceBJsServerNewImpl.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Cleaning output files:
-  out/production/bJsServer/bJsServer.js
-  out/production/bJsServer/bJsServer.meta.js
-  out/production/bJsServer/bJsServer/root-package.kjsm
-End of files
-Compiling files:
-  bJsServer/src/serviceBJsServerNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bc/src/serviceBcNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJsClient
-Cleaning output files:
-  out/production/bJsClient/bJsClient.js
-  out/production/bJsClient/bJsClient.meta.js
-  out/production/bJsClient/bJsClient/root-package.kjsm
-End of files
-Compiling files:
-  bJsClient/src/serviceBJsClientNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bJsClient/src/serviceBJsClientNewImpl.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Cleaning output files:
-  out/production/bJsClient/bJsClient.js
-  out/production/bJsClient/bJsClient.meta.js
-  out/production/bJsClient/bJsClient/root-package.kjsm
-End of files
-Compiling files:
-  bJsClient/src/serviceBJsClientNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bc/src/serviceBcNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJvmServer
-Cleaning output files:
-  out/production/bJvmServer/META-INF/bJvmServer.kotlin_module
-  out/production/bJvmServer/ServiceBcNewHeaderKt.class
-End of files
-Compiling files:
-  bJvmServer/src/serviceBJvmServerNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bJvmServer/src/serviceBJvmServerNewImpl.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Cleaning output files:
-  out/production/bJvmServer/META-INF/bJvmServer.kotlin_module
-  out/production/bJvmServer/ServiceBJvmServerNewImplKt.class
-End of files
-Compiling files:
-  bJvmServer/src/serviceBJvmServerNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bc/src/serviceBcNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJvmClient
-Cleaning output files:
-  out/production/bJvmClient/META-INF/bJvmClient.kotlin_module
-  out/production/bJvmClient/ServiceBcNewHeaderKt.class
-End of files
-Compiling files:
-  bJvmClient/src/serviceBJvmClientNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bJvmClient/src/serviceBJvmClientNewImpl.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Cleaning output files:
-  out/production/bJvmClient/META-INF/bJvmClient.kotlin_module
-  out/production/bJvmClient/ServiceBJvmClientNewImplKt.class
-End of files
-Compiling files:
-  bJvmClient/src/serviceBJvmClientNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bc/src/serviceBcNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-
-================ Step #3 =================
+================ Step #1 create new service =================
 
 Building ac
 Building bc
@@ -319,7 +31,10 @@ Building rbJsClient
 Exit code: NOTHING_DONE
 ------------------------------------------
 Building bJsClient
-Exit code: NOTHING_DONE
+Compiling files:
+  bcClient/src/serviceBcClientNewHeader.kt
+End of files
+Exit code: OK
 ------------------------------------------
 Building rJsClient
 Exit code: NOTHING_DONE
@@ -349,114 +64,16 @@ Building rbJvmClient
 Exit code: NOTHING_DONE
 ------------------------------------------
 Building bJvmClient
-Cleaning output files:
-  out/production/bJvmClient/BJvmClientNewJavaClass.class
-  out/production/bJvmClient/META-INF/bJvmClient.kotlin_module
-  out/production/bJvmClient/ServiceBJvmClientNewImplKt.class
-End of files
 Compiling files:
-  bJvmClient/src/serviceBJvmClientNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
+  bcClient/src/serviceBcClientNewHeader.kt
 End of files
-Marked as dirty by Kotlin:
-  bc/src/serviceBcNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Compiling files:
-  bJvmClient/src/BJvmClientNewJavaClass.java
-End of files
-Exit code: NOTHING_DONE
+Exit code: OK
 ------------------------------------------
 Building rJvmClient
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #4 =================
-
-Building ac
-Building bc
-Building acServer
-Building bcServer
-Building acClient
-Building bcClient
-Building raJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJvmServer
-Cleaning output files:
-  out/production/bJvmServer/BJvmServerNewJavaClass.class
-  out/production/bJvmServer/META-INF/bJvmServer.kotlin_module
-  out/production/bJvmServer/ServiceBJvmServerNewImplKt.class
-End of files
-Compiling files:
-  bJvmServer/src/serviceBJvmServerNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bc/src/serviceBcNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Compiling files:
-  bJvmServer/src/BJvmServerNewJavaClass.java
-End of files
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-
-================ Step #5 =================
+================ Step #2 edit new service =================
 
 Building ac
 Building bc
@@ -495,157 +112,70 @@ Cleaning output files:
   out/production/bJsClient/bJsClient/root-package.kjsm
 End of files
 Compiling files:
-  bJsClient/src/serviceBJsClientNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bc/src/serviceBcNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-
-================ Step #6 =================
-
-Building ac
-Building bc
-Building acServer
-Building bcServer
-Building acClient
-Building bcClient
-Building raJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJsServer
-Cleaning output files:
-  out/production/bJsServer/bJsServer.js
-  out/production/bJsServer/bJsServer.meta.js
-  out/production/bJsServer/bJsServer/root-package.kjsm
-End of files
-Compiling files:
-  bJsServer/src/serviceBJsServerNewImpl.kt
-  bc/src/serviceBcNewHeader.kt
-End of files
-Marked as dirty by Kotlin:
-  bc/src/serviceBcNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJsClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJvmServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building raJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building bJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rJvmClient
-Exit code: NOTHING_DONE
-------------------------------------------
-
-================ Step #7 =================
-
-Building ac
-Building bc
-Building acServer
-Building bcServer
-Building acClient
-Building bcClient
-Building raJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building aJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Building rbJsServer
-Exit code: NOTHING_DONE
-------------------------------------------
-Cleaning output files:
-  out/production/bJsServer/bJsServer.js
-  out/production/bJsServer/bJsServer.meta.js
-  out/production/bJsServer/bJsServer/root-package.kjsm
-End of files
-Building bJsServer
-Compiling files:
+  bcClient/src/serviceBcClientNewHeader.kt
 End of files
 Exit code: OK
+------------------------------------------
+Building rJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rbJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rbJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJvmClient
+Cleaning output files:
+  out/production/bJvmClient/META-INF/bJvmClient.kotlin_module
+  out/production/bJvmClient/ServiceBcClientNewHeaderKt.class
+End of files
+Compiling files:
+  bcClient/src/serviceBcClientNewHeader.kt
+End of files
+Exit code: OK
+------------------------------------------
+Building rJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+
+================ Step #3 delete new service =================
+
+Building ac
+Building bc
+Building acServer
+Building bcServer
+Building acClient
+Building bcClient
+Building raJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rbJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJsServer
+Exit code: NOTHING_DONE
 ------------------------------------------
 Building rJsServer
 Exit code: NOTHING_DONE
@@ -681,17 +211,8 @@ Exit code: NOTHING_DONE
 Building rbJvmServer
 Exit code: NOTHING_DONE
 ------------------------------------------
-Cleaning output files:
-  out/production/bJvmServer/META-INF/bJvmServer.kotlin_module
-  out/production/bJvmServer/ServiceBJvmServerNewImplKt.class
-End of files
-Cleaning output files:
-  out/production/bJvmServer/ServiceBcNewHeaderKt.class
-End of files
 Building bJvmServer
-Compiling files:
-End of files
-Exit code: OK
+Exit code: NOTHING_DONE
 ------------------------------------------
 Building rJvmServer
 Exit code: NOTHING_DONE
@@ -707,10 +228,7 @@ Exit code: NOTHING_DONE
 ------------------------------------------
 Cleaning output files:
   out/production/bJvmClient/META-INF/bJvmClient.kotlin_module
-  out/production/bJvmClient/ServiceBJvmClientNewImplKt.class
-End of files
-Cleaning output files:
-  out/production/bJvmClient/ServiceBcNewHeaderKt.class
+  out/production/bJvmClient/ServiceBcClientNewHeaderKt.class
 End of files
 Building bJvmClient
 Compiling files:

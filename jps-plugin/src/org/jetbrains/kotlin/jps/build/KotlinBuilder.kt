@@ -17,10 +17,7 @@
 package org.jetbrains.kotlin.jps.build
 
 import com.intellij.openapi.diagnostic.Logger
-import com.intellij.openapi.util.Key
-import com.intellij.openapi.util.io.FileUtil
 import com.intellij.util.containers.ContainerUtil
-import gnu.trove.THashSet
 import org.jetbrains.jps.ModuleChunk
 import org.jetbrains.jps.builders.BuildTarget
 import org.jetbrains.jps.builders.DirtyFilesHolder
@@ -321,16 +318,14 @@ class KotlinBuilder : ModuleLevelBuilder(BuilderCategory.SOURCE_PROCESSOR) {
             version = true // Always report the version to help diagnosing user issues if they submit the compiler output
         }
 
-        val allCompiledFiles = getAllCompiledFilesContainer(context)
-
         if (LOG.isDebugEnabled) {
             LOG.debug("Compiling files: ${chunkDirtyFilesHolder.dirtyFiles}")
         }
 
         val start = System.nanoTime()
         val outputItemCollector = doCompileModuleChunk(
-            allCompiledFiles, chunk, kotlinTarget, commonArguments, context, chunkDirtyFilesHolder,
-            environment, incrementalCaches, fsOperations
+            chunk, kotlinTarget, commonArguments, context, chunkDirtyFilesHolder, environment,
+            incrementalCaches, fsOperations
         )
 
         statisticsLogger.registerStatistic(chunk, System.nanoTime() - start)
@@ -490,7 +485,6 @@ class KotlinBuilder : ModuleLevelBuilder(BuilderCategory.SOURCE_PROCESSOR) {
     }
 
     private fun doCompileModuleChunk(
-        allCompiledFiles: MutableSet<File>,
         chunk: ModuleChunk,
         kotlinTarget: KotlinModuleBuildTarget?,
         commonArguments: CommonCompilerArguments,
@@ -543,8 +537,8 @@ class KotlinBuilder : ModuleLevelBuilder(BuilderCategory.SOURCE_PROCESSOR) {
         }
 
         val isDoneSomething = kotlinTarget?.compileModuleChunk(
-            allCompiledFiles, chunk, commonArguments, chunkDirtyFilesHolder,
-            environment, fsOperations
+            chunk, commonArguments, chunkDirtyFilesHolder, environment,
+            fsOperations
         ) ?: false
 
         return if (isDoneSomething) environment.outputItemsCollector else null
@@ -761,18 +755,6 @@ fun getDependentTargets(
 
 private fun getDependenciesRecursively(module: JpsModule, kind: JpsJavaClasspathKind): Set<JpsModule> =
     JpsJavaExtensionService.dependencies(module).includedIn(kind).recursivelyExportedOnly().modules
-
-// TODO: investigate thread safety
-private val ALL_COMPILED_FILES_KEY = Key.create<MutableSet<File>>("_all_kotlin_compiled_files_")
-
-fun getAllCompiledFilesContainer(context: CompileContext): MutableSet<File> {
-    var allCompiledFiles = ALL_COMPILED_FILES_KEY.get(context)
-    if (allCompiledFiles == null) {
-        allCompiledFiles = THashSet(FileUtil.FILE_HASHING_STRATEGY)
-        ALL_COMPILED_FILES_KEY.set(context, allCompiledFiles)
-    }
-    return allCompiledFiles
-}
 
 fun jvmBuildMetaInfoFile(target: ModuleBuildTarget, dataManager: BuildDataManager): File =
     File(dataManager.dataPaths.getTargetDataRoot(target), KotlinBuilder.JVM_BUILD_META_INFO_FILE_NAME)

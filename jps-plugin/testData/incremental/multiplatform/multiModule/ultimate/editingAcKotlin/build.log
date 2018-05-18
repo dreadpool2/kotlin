@@ -1,0 +1,274 @@
+================ Step #1 create new service =================
+
+Building ac
+Building bc
+Building acServer
+Building bcServer
+Building acClient
+Building bcClient
+Building raJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJsServer
+Compiling files:
+  ac/src/serviceAcNewHeader.kt
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJsClient
+Compiling files:
+  ac/src/serviceAcNewHeader.kt
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJvmServer
+Compiling files:
+  ac/src/serviceAcNewHeader.kt
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJvmClient
+Compiling files:
+  ac/src/serviceAcNewHeader.kt
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+
+================ Step #2 edit new service =================
+
+Building ac
+Building bc
+Building acServer
+Building bcServer
+Building acClient
+Building bcClient
+Building raJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJsServer
+Cleaning output files:
+  out/production/aJsServer/aJsServer.js
+  out/production/aJsServer/aJsServer.meta.js
+  out/production/aJsServer/aJsServer/root-package.kjsm
+End of files
+Compiling files:
+  ac/src/serviceAcNewHeader.kt
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJsClient
+Cleaning output files:
+  out/production/aJsClient/aJsClient.js
+  out/production/aJsClient/aJsClient.meta.js
+  out/production/aJsClient/aJsClient/root-package.kjsm
+End of files
+Compiling files:
+  ac/src/serviceAcNewHeader.kt
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJvmServer
+Cleaning output files:
+  out/production/aJvmServer/META-INF/aJvmServer.kotlin_module
+  out/production/aJvmServer/ServiceAcNewHeaderKt.class
+End of files
+Compiling files:
+  ac/src/serviceAcNewHeader.kt
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building aJvmClient
+Cleaning output files:
+  out/production/aJvmClient/META-INF/aJvmClient.kotlin_module
+  out/production/aJvmClient/ServiceAcNewHeaderKt.class
+End of files
+Compiling files:
+  ac/src/serviceAcNewHeader.kt
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+
+================ Step #3 delete new service =================
+
+Building ac
+Building bc
+Building acServer
+Building bcServer
+Building acClient
+Building bcClient
+Building raJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Cleaning output files:
+  out/production/aJsServer/aJsServer.js
+  out/production/aJsServer/aJsServer.meta.js
+  out/production/aJsServer/aJsServer/root-package.kjsm
+End of files
+Building aJsServer
+Compiling files:
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJsServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Cleaning output files:
+  out/production/aJsClient/aJsClient.js
+  out/production/aJsClient/aJsClient.meta.js
+  out/production/aJsClient/aJsClient/root-package.kjsm
+End of files
+Building aJsClient
+Compiling files:
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJsClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Cleaning output files:
+  out/production/aJvmServer/META-INF/aJvmServer.kotlin_module
+  out/production/aJvmServer/ServiceAcNewHeaderKt.class
+End of files
+Building aJvmServer
+Compiling files:
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJvmServer
+Exit code: NOTHING_DONE
+------------------------------------------
+Building raJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Cleaning output files:
+  out/production/aJvmClient/META-INF/aJvmClient.kotlin_module
+  out/production/aJvmClient/ServiceAcNewHeaderKt.class
+End of files
+Building aJvmClient
+Compiling files:
+End of files
+Exit code: OK
+------------------------------------------
+Building rbJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building bJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------
+Building rJvmClient
+Exit code: NOTHING_DONE
+------------------------------------------

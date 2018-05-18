@@ -135,65 +135,17 @@ Exit code: NOTHING_DONE
 
 Building cMain
 Building pJsMain
-Cleaning output files:
-  out/production/pJsMain/pJsMain.js
-  out/production/pJsMain/pJsMain.meta.js
-  out/production/pJsMain/pJsMain/root-package.kjsm
-End of files
-Compiling files:
-  cMain/src/serviceCMainNewHeader.kt
-  pJsMain/src/servicePJsMainNewImpl.kt
-End of files
-Marked as dirty by Kotlin:
-  pJsMain/src/servicePJsMainNewImpl.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Cleaning output files:
-  out/production/pJsMain/pJsMain.js
-  out/production/pJsMain/pJsMain.meta.js
-  out/production/pJsMain/pJsMain/root-package.kjsm
-End of files
-Compiling files:
-  cMain/src/serviceCMainNewHeader.kt
-  pJsMain/src/servicePJsMainNewImpl.kt
-End of files
-Marked as dirty by Kotlin:
-  cMain/src/serviceCMainNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
 Exit code: NOTHING_DONE
 ------------------------------------------
 Building pJvmMain
 Cleaning output files:
-  out/production/pJvmMain/META-INF/pJvmMain.kotlin_module
   out/production/pJvmMain/PJvmMainNewJavaClass.class
-  out/production/pJvmMain/ServiceCMainNewHeaderKt.class
 End of files
-Compiling files:
-  cMain/src/serviceCMainNewHeader.kt
-  pJvmMain/src/servicePJvmMainNewImpl.kt
-End of files
-Marked as dirty by Kotlin:
-  pJvmMain/src/servicePJvmMainNewImpl.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
+Exit code: NOTHING_DONE
 ------------------------------------------
 Compiling files:
   pJvmMain/src/PJvmMainNewJavaClass.java
 End of files
-Cleaning output files:
-  out/production/pJvmMain/META-INF/pJvmMain.kotlin_module
-  out/production/pJvmMain/ServicePJvmMainNewImplKt.class
-End of files
-Compiling files:
-  cMain/src/serviceCMainNewHeader.kt
-  pJvmMain/src/servicePJvmMainNewImpl.kt
-End of files
-Marked as dirty by Kotlin:
-  cMain/src/serviceCMainNewHeader.kt
-Exit code: ADDITIONAL_PASS_REQUIRED
-------------------------------------------
-Exit code: NOTHING_DONE
-------------------------------------------
 Building cTests
 Building pJsTests
 Exit code: NOTHING_DONE
@@ -211,6 +163,7 @@ Exit code: NOTHING_DONE
 Building pJvmMain
 Cleaning output files:
   out/production/pJvmMain/META-INF/pJvmMain.kotlin_module
+  out/production/pJvmMain/PJvmMainNewJavaClass.class
   out/production/pJvmMain/ServicePJvmMainNewImplKt.class
 End of files
 Compiling files:
@@ -221,6 +174,9 @@ Marked as dirty by Kotlin:
   cMain/src/serviceCMainNewHeader.kt
 Exit code: ADDITIONAL_PASS_REQUIRED
 ------------------------------------------
+Compiling files:
+  pJvmMain/src/PJvmMainNewJavaClass.java
+End of files
 Exit code: NOTHING_DONE
 ------------------------------------------
 Building cTests

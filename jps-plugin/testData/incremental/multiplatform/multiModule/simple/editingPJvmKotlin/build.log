@@ -1,4 +1,4 @@
-================ Step #1 =================
+================ Step #1 create new service =================
 
 Building c
 Building pJs
@@ -11,7 +11,7 @@ End of files
 Exit code: OK
 ------------------------------------------
 
-================ Step #2 =================
+================ Step #2 edit new service =================
 
 Building c
 Building pJs
@@ -28,7 +28,7 @@ End of files
 Exit code: OK
 ------------------------------------------
 
-================ Step #3 =================
+================ Step #3 delete new service =================
 
 Building c
 Building pJs

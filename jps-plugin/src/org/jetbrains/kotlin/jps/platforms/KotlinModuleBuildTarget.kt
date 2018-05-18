@@ -144,7 +144,6 @@ abstract class KotlinModuleBuildTarget(val context: CompileContext, val jpsModul
     override fun toString() = jpsModuleBuildTarget.toString()
 
     abstract fun compileModuleChunk(
-        allCompiledFiles: MutableSet<File>,
         chunk: ModuleChunk,
         commonArguments: CommonCompilerArguments,
         dirtyFilesHolder: KotlinChunkDirtySourceFilesHolder,

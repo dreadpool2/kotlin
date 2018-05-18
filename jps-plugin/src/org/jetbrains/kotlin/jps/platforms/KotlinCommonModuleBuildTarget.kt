@@ -20,13 +20,11 @@ import org.jetbrains.kotlin.jps.build.KotlinChunkDirtySourceFilesHolder
 import org.jetbrains.kotlin.jps.incremental.JpsIncrementalCache
 import org.jetbrains.kotlin.jps.incremental.JpsIncrementalJvmCache
 import org.jetbrains.kotlin.jps.model.k2MetadataCompilerArguments
-import java.io.File
 
 class KotlinCommonModuleBuildTarget(context: CompileContext, jpsModuleBuildTarget: ModuleBuildTarget) :
     KotlinModuleBuildTarget(context, jpsModuleBuildTarget) {
 
     override fun compileModuleChunk(
-        allCompiledFiles: MutableSet<File>,
         chunk: ModuleChunk,
         commonArguments: CommonCompilerArguments,
         dirtyFilesHolder: KotlinChunkDirtySourceFilesHolder,

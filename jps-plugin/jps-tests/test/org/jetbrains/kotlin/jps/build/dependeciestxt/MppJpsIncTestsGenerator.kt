@@ -110,6 +110,15 @@ class MppJpsIncTestsGenerator(val txtFile: File, val txt: DependenciesTxt, val r
         private val dir = File(rootDir, title)
         private val modules = mutableMapOf<DependenciesTxt.Module, ModuleContentSettings>()
 
+        var step = 1
+        val steps = mutableListOf<String>()
+
+        private inline fun step(name: String, body: () -> Unit) {
+            body()
+            steps.add(name)
+            step++
+        }
+
         var DependenciesTxt.Module.contentsSettings: ModuleContentSettings
             get() = modules.getOrPut(this) { ModuleContentSettings(this) }
             set(value) {
@@ -131,41 +140,59 @@ class MppJpsIncTestsGenerator(val txtFile: File, val txt: DependenciesTxt, val r
 
             when {
                 module.isCommonModule -> {
-                    generateCommonFile(
-                        module,
-                        fileNameSuffix = ".new.1"
-                    )
-                    generateCommonFile(
-                        module,
-                        fileNameSuffix = ".touch.2"
-                    )
+                    step("create new service") {
+                        generateCommonFile(
+                            module,
+                            fileNameSuffix = ".new.$step"
+                        )
+                    }
 
-                    serviceKtFile(
-                        module,
-                        fileNameSuffix = ".delete.3"
-                    ).setFileContent("")
+                    step("edit new service") {
+                        generateCommonFile(
+                            module,
+                            fileNameSuffix = ".touch.$step"
+                        )
+                    }
+
+                    step("delete new service") {
+                        serviceKtFile(
+                            module,
+                            fileNameSuffix = ".delete.$step"
+                        ).setFileContent("")
+                    }
                 }
                 else -> {
-                    generatePlatformFile(
-                        module,
-                        fileNameSuffix = ".touch.2"
-                    )
-
-                    // generateKtFile event if changeJavaClass requested (for test calling java from kotlin)
-                    module.contentsSettings = module.contentsSettings.copy(generateKtFile = true)
-
-                    generatePlatformFile(
-                        module,
-                        fileNameSuffix = ".new.1"
-                    )
+                    step("create new service") {
+                        // generateKtFile event if changeJavaClass requested (for test calling java from kotlin)
+                        val prevModuleContentsSettings = module.contentsSettings
+                        module.contentsSettings = module.contentsSettings.copy(generateKtFile = true)
 
 
-                    if (changeJavaClass) serviceJavaFile(module, fileNameSuffix = ".delete.3").setFileContent("")
+                        generatePlatformFile(
+                            module,
+                            fileNameSuffix = ".new.$step"
+                        )
 
-                    // kotlin file also created for testing java class
-                    serviceKtFile(module, fileNameSuffix = ".delete.3").setFileContent("")
+                        module.contentsSettings = prevModuleContentsSettings
+                    }
+
+                    step("edit new service") {
+                        generatePlatformFile(
+                            module,
+                            fileNameSuffix = ".touch.$step"
+                        )
+                    }
+
+                    step("delete new service") {
+                        if (changeJavaClass) serviceJavaFile(module, fileNameSuffix = ".delete.$step").setFileContent("")
+
+                        // kotlin file also created for testing java class
+                        serviceKtFile(module, fileNameSuffix = ".delete.$step").setFileContent("")
+                    }
                 }
             }
+
+            generateStepsTxt()
         }
 
         fun generateEditingExpectActual(commonModule: DependenciesTxt.Module) {
@@ -180,15 +207,6 @@ class MppJpsIncTestsGenerator(val txtFile: File, val txt: DependenciesTxt, val r
                     serviceNameSuffix = "New",
                     generateActualDeclarationsFor = listOf(commonModule)
                 )
-            }
-
-            var step = 1
-            val steps = mutableListOf<String>()
-
-            fun step(name: String, body: () -> Unit) {
-                body()
-                steps.add(name)
-                step++
             }
 
             step("create new service in ${commonModule.name}") {
@@ -235,6 +253,10 @@ class MppJpsIncTestsGenerator(val txtFile: File, val txt: DependenciesTxt, val r
                 serviceKtFile(commonModule, fileNameSuffix = ".delete.$step").setFileContent("")
             }
 
+            generateStepsTxt()
+        }
+
+        private fun generateStepsTxt() {
             File(dir, "steps.txt").setFileContent(steps.joinToString("\n"))
         }
 

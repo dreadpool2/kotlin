@@ -80,7 +80,6 @@ class KotlinJsModuleBuildTarget(compileContext: CompileContext, jpsModuleBuildTa
     }
 
     override fun compileModuleChunk(
-        allCompiledFiles: MutableSet<File>,
         chunk: ModuleChunk,
         commonArguments: CommonCompilerArguments,
         dirtyFilesHolder: KotlinChunkDirtySourceFilesHolder,

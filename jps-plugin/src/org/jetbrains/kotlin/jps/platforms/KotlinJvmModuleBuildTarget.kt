@@ -120,7 +120,6 @@ class KotlinJvmModuleBuildTarget(compileContext: CompileContext, jpsModuleBuildT
     }
 
     override fun compileModuleChunk(
-        allCompiledFiles: MutableSet<File>,
         chunk: ModuleChunk,
         commonArguments: CommonCompilerArguments,
         dirtyFilesHolder: KotlinChunkDirtySourceFilesHolder,
@@ -137,7 +136,6 @@ class KotlinJvmModuleBuildTarget(compileContext: CompileContext, jpsModuleBuildT
         }
 
         val filesSet = dirtyFilesHolder.dirtyFiles
-        allCompiledFiles.addAll(filesSet)
 
         val moduleFile = generateModuleDescription(chunk, dirtyFilesHolder)
         if (moduleFile == null) {
