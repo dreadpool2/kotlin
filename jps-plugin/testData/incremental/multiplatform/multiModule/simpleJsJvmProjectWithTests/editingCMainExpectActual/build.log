@@ -1,4 +1,28 @@
-================ Step #1 =================
+================ Step #1 create new service in cMain =================
+
+Building cMain
+Building pJsMain
+Compiling files:
+  cMain/src/serviceCMainNewHeader.kt
+End of files
+Exit code: ABORT
+------------------------------------------
+COMPILATION FAILED
+[Module 'pJsMain' production] Expected function 'cMain_platformDependentCMainNew' has no actual declaration in module
+
+================ Step #2 create new service in pJvmMain =================
+
+Building cMain
+Building pJsMain
+Compiling files:
+  cMain/src/serviceCMainNewHeader.kt
+End of files
+Exit code: ABORT
+------------------------------------------
+COMPILATION FAILED
+[Module 'pJsMain' production] Expected function 'cMain_platformDependentCMainNew' has no actual declaration in module
+
+================ Step #3 create new service in pJsMain =================
 
 Building cMain
 Building pJsMain
@@ -40,7 +64,7 @@ Building pJvmTests
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #2 =================
+================ Step #4 change new service in cMain =================
 
 Building cMain
 Building pJsMain
@@ -107,7 +131,7 @@ Building pJvmTests
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #3 =================
+================ Step #5 change new service in pJvmMain: java =================
 
 Building cMain
 Building pJsMain
@@ -144,17 +168,32 @@ Cleaning output files:
   out/production/pJvmMain/META-INF/pJvmMain.kotlin_module
   out/production/pJvmMain/PJvmMainNewJavaClass.class
   out/production/pJvmMain/ServiceCMainNewHeaderKt.class
+End of files
+Compiling files:
+  cMain/src/serviceCMainNewHeader.kt
+  pJvmMain/src/servicePJvmMainNewImpl.kt
+End of files
+Marked as dirty by Kotlin:
+  pJvmMain/src/servicePJvmMainNewImpl.kt
+Exit code: ADDITIONAL_PASS_REQUIRED
+------------------------------------------
+Compiling files:
+  pJvmMain/src/PJvmMainNewJavaClass.java
+End of files
+Cleaning output files:
+  out/production/pJvmMain/META-INF/pJvmMain.kotlin_module
   out/production/pJvmMain/ServicePJvmMainNewImplKt.class
 End of files
 Compiling files:
   cMain/src/serviceCMainNewHeader.kt
   pJvmMain/src/servicePJvmMainNewImpl.kt
 End of files
-Exit code: OK
+Marked as dirty by Kotlin:
+  cMain/src/serviceCMainNewHeader.kt
+Exit code: ADDITIONAL_PASS_REQUIRED
 ------------------------------------------
-Compiling files:
-  pJvmMain/src/PJvmMainNewJavaClass.java
-End of files
+Exit code: NOTHING_DONE
+------------------------------------------
 Building cTests
 Building pJsTests
 Exit code: NOTHING_DONE
@@ -163,7 +202,36 @@ Building pJvmTests
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #4 =================
+================ Step #6 change new service in pJvmMain: kotlin =================
+
+Building cMain
+Building pJsMain
+Exit code: NOTHING_DONE
+------------------------------------------
+Building pJvmMain
+Cleaning output files:
+  out/production/pJvmMain/META-INF/pJvmMain.kotlin_module
+  out/production/pJvmMain/ServicePJvmMainNewImplKt.class
+End of files
+Compiling files:
+  cMain/src/serviceCMainNewHeader.kt
+  pJvmMain/src/servicePJvmMainNewImpl.kt
+End of files
+Marked as dirty by Kotlin:
+  cMain/src/serviceCMainNewHeader.kt
+Exit code: ADDITIONAL_PASS_REQUIRED
+------------------------------------------
+Exit code: NOTHING_DONE
+------------------------------------------
+Building cTests
+Building pJsTests
+Exit code: NOTHING_DONE
+------------------------------------------
+Building pJvmTests
+Exit code: NOTHING_DONE
+------------------------------------------
+
+================ Step #7 change new service in pJsMain =================
 
 Building cMain
 Building pJsMain
@@ -193,7 +261,28 @@ Building pJvmTests
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #5 =================
+================ Step #8 delete new service in pJvmMain =================
+
+Building cMain
+Building pJsMain
+Exit code: NOTHING_DONE
+------------------------------------------
+Cleaning output files:
+  out/production/pJvmMain/META-INF/pJvmMain.kotlin_module
+  out/production/pJvmMain/ServicePJvmMainNewImplKt.class
+End of files
+Building pJvmMain
+Compiling files:
+  cMain/src/serviceCMainNewHeader.kt
+End of files
+Marked as dirty by Kotlin:
+  cMain/src/serviceCMainNewHeader.kt
+Exit code: ABORT
+------------------------------------------
+COMPILATION FAILED
+[Module 'pJvmMain' production] Expected function 'cMain_platformDependentCMainNew' has no actual declaration in module
+
+================ Step #9 delete new service in pJsMain =================
 
 Building cMain
 Cleaning output files:
@@ -203,15 +292,25 @@ Cleaning output files:
 End of files
 Building pJsMain
 Compiling files:
+  cMain/src/serviceCMainNewHeader.kt
+End of files
+Marked as dirty by Kotlin:
+  cMain/src/serviceCMainNewHeader.kt
+Exit code: ABORT
+------------------------------------------
+COMPILATION FAILED
+[Module 'pJsMain' production] Expected function 'cMain_platformDependentCMainNew' has no actual declaration in module
+
+================ Step #10 delete new service in cMain =================
+
+Building cMain
+Building pJsMain
+Compiling files:
 End of files
 Exit code: OK
 ------------------------------------------
 Cleaning output files:
-  out/production/pJvmMain/META-INF/pJvmMain.kotlin_module
   out/production/pJvmMain/ServiceCMainNewHeaderKt.class
-End of files
-Cleaning output files:
-  out/production/pJvmMain/ServicePJvmMainNewImplKt.class
 End of files
 Building pJvmMain
 Compiling files:

@@ -1,20 +1,20 @@
-cMain [common, edit, editExpectActual]
+cMain [common, editExpectActual]
 
-cTests [common, edit, editExpectActual]
+cTests [common, editExpectActual]
 cTests -> cMain [compile]
 
 // jvm
-pJvmMain [jvm, edit, editJvm]
+pJvmMain [jvm]
 pJvmMain -> cMain [expectedBy]
 
-pJvmTests [jvm, edit, editJvm]
+pJvmTests [jvm]
 pJvmTests -> pJvmMain [compile]
 pJvmTests -> cTests [expectedBy]
 
 // js
-pJsMain [js, edit]
+pJsMain [js]
 pJsMain -> cMain [expectedBy]
 
-pJsTests [js, edit]
+pJsTests [js]
 pJsTests -> pJsMain [compile]
 pJsTests -> cTests [expectedBy]

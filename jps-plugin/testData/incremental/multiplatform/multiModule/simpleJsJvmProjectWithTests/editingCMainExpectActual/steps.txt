@@ -1,0 +1,10 @@
+create new service in cMain
+create new service in pJvmMain
+create new service in pJsMain
+change new service in cMain
+change new service in pJvmMain: java
+change new service in pJvmMain: kotlin
+change new service in pJsMain
+delete new service in pJvmMain
+delete new service in pJsMain
+delete new service in cMain

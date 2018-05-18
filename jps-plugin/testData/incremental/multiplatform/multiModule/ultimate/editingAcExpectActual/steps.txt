@@ -1,0 +1,17 @@
+create new service in ac
+create new service in aJvmClient
+create new service in aJvmServer
+create new service in aJsClient
+create new service in aJsServer
+change new service in ac
+change new service in aJvmClient: java
+change new service in aJvmClient: kotlin
+change new service in aJvmServer: java
+change new service in aJvmServer: kotlin
+change new service in aJsClient
+change new service in aJsServer
+delete new service in aJvmClient
+delete new service in aJvmServer
+delete new service in aJsClient
+delete new service in aJsServer
+delete new service in ac

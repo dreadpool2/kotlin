@@ -259,7 +259,11 @@ abstract class AbstractIncrementalJpsTest(
             buildString {
                 incrementalMakeResults.forEachIndexed { i, makeResult ->
                     if (i > 0) append("\n")
-                    append("================ Step #${i + 1} =================\n\n")
+                    if (makeResult.name != null) {
+                        append("================ Step #${i + 1} ${makeResult.name} =================\n\n")
+                    } else {
+                        append("================ Step #${i + 1} =================\n\n")
+                    }
                     append(makeResult.log)
                 }
             }
@@ -377,23 +381,30 @@ abstract class AbstractIncrementalJpsTest(
         return byteArrayOutputStream.toString()
     }
 
-    protected data class MakeResult(val log: String, val makeFailed: Boolean, val mappingsDump: String?)
+    protected data class MakeResult(val log: String, val makeFailed: Boolean, val mappingsDump: String?) {
+        var name: String? = null
+    }
 
     private fun performModificationsAndMake(moduleNames: Set<String>?): List<MakeResult> {
         val results = arrayListOf<MakeResult>()
         val modifications = getModificationsToPerform(testDataDir, moduleNames, allowNoFilesWithSuffixInTestData, TouchPolicy.TIMESTAMP)
 
-        for (step in modifications) {
+        val stepsTxt = File(testDataDir, "steps.txt")
+        val modificationNames = if (stepsTxt.exists()) stepsTxt.readLines() else null
+
+        modifications.forEachIndexed { index, step ->
             step.forEach { it.perform(workDir, mapWorkingToOriginalFile) }
             performAdditionalModifications(step)
             if (moduleNames == null) {
                 preProcessSources(File(workDir, "src"))
-            }
-            else {
+            } else {
                 moduleNames.forEach { preProcessSources(File(workDir, "$it/src")) }
             }
 
-            results.add(make())
+            val makeResult = make().also {
+                it.name = modificationNames?.getOrNull(index)
+            }
+            results.add(makeResult)
         }
         return results
     }

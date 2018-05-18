@@ -7,20 +7,8 @@ package org.jetbrains.kotlin.jps.build
 
 import org.jetbrains.kotlin.jps.build.dependeciestxt.DependenciesTxt
 
-abstract class AbstractMultiplatformJpsTest :
-    AbstractIncrementalJpsTest(
-        allowNoFilesWithSuffixInTestData = true,
-        allowNoBuildLogFileInTestData = true
-    ) {
-
+abstract class AbstractMultiplatformJpsTest : AbstractIncrementalJpsTest() {
     override fun prepareModuleSources(module: DependenciesTxt.Module?) {
         prepareIndexedModuleSources(module!!)
-    }
-    override fun doTest(testDataPath: String) {
-        if (getTestName(true) == "initial") {
-            doInitialMakeTest(testDataPath)
-        } else {
-            super.doTest(testDataPath)
-        }
     }
 }

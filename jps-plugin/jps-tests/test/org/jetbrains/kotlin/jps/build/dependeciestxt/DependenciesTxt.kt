@@ -60,13 +60,13 @@ data class DependenciesTxt(
             get() = dependencies.filter { it.expectedBy }
 
         @Flag
-        var edit: Boolean = true
+        var edit: Boolean = false
 
         @Flag
-        var editJvm: Boolean = true
+        var editJvm: Boolean = false
 
         @Flag
-        var editExpectActual: Boolean = true
+        var editExpectActual: Boolean = false
 
         companion object {
             val flags: Map<String, KMutableProperty1<Module, Boolean>> = Module::class.memberProperties

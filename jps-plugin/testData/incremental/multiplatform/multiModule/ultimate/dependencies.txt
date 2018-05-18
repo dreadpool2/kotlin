@@ -21,9 +21,9 @@
 
 //////  RA //////
 
-raJvmClient [jvm]
+raJvmClient [jvm, edit]
 raJvmServer [jvm]
-raJsClient [js]
+raJsClient [js, edit]
 raJsServer [js]
 
 ////// RB //////
@@ -42,7 +42,7 @@ rbJsServer -> raJsServer [compile, exported]
 
 ////// A //////
 
-ac [common]
+ac [common, edit, editExpectActual]
 
 acClient [common]
 acClient -> ac [compile, exported]
@@ -50,7 +50,7 @@ acClient -> ac [compile, exported]
 acServer [common]
 acServer -> ac [compile, exported]
 
-aJvmClient [jvm]
+aJvmClient [jvm, edit, editJvm]
 aJvmClient -> ac [expectedBy]
 aJvmClient -> acClient [expectedBy]
 aJvmClient -> raJvmClient [compile, exported]
@@ -60,7 +60,7 @@ aJvmServer -> ac [expectedBy]
 aJvmServer -> acServer [expectedBy]
 aJvmServer -> raJvmServer [compile, exported]
 
-aJsClient [js]
+aJsClient [js, edit]
 aJsClient -> ac [expectedBy]
 aJsClient -> acClient [expectedBy]
 aJsClient -> raJsClient [compile, exported]
@@ -72,10 +72,10 @@ aJsServer -> raJsServer [compile, exported]
 
 ////// B //////
 
-bc [common]
+bc [common, editExpectActual]
 bc -> ac [compile, exported]
 
-bcClient [common]
+bcClient [common, edit, editJvm]
 bcClient -> bc [compile, exported]
 bcClient -> acClient [compile, exported]
 
@@ -109,13 +109,13 @@ bJsServer -> rbJsServer [compile, exported]
 
 ////// R //////
 
-rJvmClient [jvm]
+rJvmClient [jvm, edit]
 rJvmClient -> bJvmClient [compile, exported]
 
 rJvmServer [jvm]
 rJvmServer -> bJvmServer [compile, exported]
 
-rJsClient [js]
+rJsClient [js, edit]
 rJsClient -> bJsClient [compile, exported]
 
 rJsServer [js]

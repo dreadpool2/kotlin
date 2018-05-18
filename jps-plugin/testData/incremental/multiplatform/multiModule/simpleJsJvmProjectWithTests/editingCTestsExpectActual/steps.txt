@@ -1,0 +1,10 @@
+create new service in cTests
+create new service in pJvmTests
+create new service in pJsTests
+change new service in cTests
+change new service in pJvmTests: java
+change new service in pJvmTests: kotlin
+change new service in pJsTests
+delete new service in pJvmTests
+delete new service in pJsTests
+delete new service in cTests

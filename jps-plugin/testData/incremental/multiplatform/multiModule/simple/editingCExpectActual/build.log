@@ -1,4 +1,28 @@
-================ Step #1 =================
+================ Step #1 create new service in c =================
+
+Building c
+Building pJs
+Compiling files:
+  c/src/serviceCNewHeader.kt
+End of files
+Exit code: ABORT
+------------------------------------------
+COMPILATION FAILED
+[Module 'pJs' production] Expected function 'c_platformDependentCNew' has no actual declaration in module
+
+================ Step #2 create new service in pJvm =================
+
+Building c
+Building pJs
+Compiling files:
+  c/src/serviceCNewHeader.kt
+End of files
+Exit code: ABORT
+------------------------------------------
+COMPILATION FAILED
+[Module 'pJs' production] Expected function 'c_platformDependentCNew' has no actual declaration in module
+
+================ Step #3 create new service in pJs =================
 
 Building c
 Building pJs
@@ -33,7 +57,7 @@ Exit code: ADDITIONAL_PASS_REQUIRED
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #2 =================
+================ Step #4 change new service in c =================
 
 Building c
 Building pJs
@@ -93,7 +117,7 @@ Exit code: ADDITIONAL_PASS_REQUIRED
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #3 =================
+================ Step #5 change new service in pJvm: java =================
 
 Building c
 Building pJs
@@ -101,8 +125,23 @@ Exit code: NOTHING_DONE
 ------------------------------------------
 Building pJvm
 Cleaning output files:
-  out/production/pJvm/META-INF/pJvm.kotlin_module
   out/production/pJvm/PJvmNewJavaClass.class
+End of files
+Exit code: NOTHING_DONE
+------------------------------------------
+Compiling files:
+  pJvm/src/PJvmNewJavaClass.java
+End of files
+
+================ Step #6 change new service in pJvm: kotlin =================
+
+Building c
+Building pJs
+Exit code: NOTHING_DONE
+------------------------------------------
+Building pJvm
+Cleaning output files:
+  out/production/pJvm/META-INF/pJvm.kotlin_module
   out/production/pJvm/ServicePJvmNewImplKt.class
 End of files
 Compiling files:
@@ -113,13 +152,10 @@ Marked as dirty by Kotlin:
   c/src/serviceCNewHeader.kt
 Exit code: ADDITIONAL_PASS_REQUIRED
 ------------------------------------------
-Compiling files:
-  pJvm/src/PJvmNewJavaClass.java
-End of files
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #4 =================
+================ Step #7 change new service in pJs =================
 
 Building c
 Building pJs
@@ -142,7 +178,28 @@ Building pJvm
 Exit code: NOTHING_DONE
 ------------------------------------------
 
-================ Step #5 =================
+================ Step #8 delete new service in pJvm =================
+
+Building c
+Building pJs
+Exit code: NOTHING_DONE
+------------------------------------------
+Cleaning output files:
+  out/production/pJvm/META-INF/pJvm.kotlin_module
+  out/production/pJvm/ServicePJvmNewImplKt.class
+End of files
+Building pJvm
+Compiling files:
+  c/src/serviceCNewHeader.kt
+End of files
+Marked as dirty by Kotlin:
+  c/src/serviceCNewHeader.kt
+Exit code: ABORT
+------------------------------------------
+COMPILATION FAILED
+[Module 'pJvm' production] Expected function 'c_platformDependentCNew' has no actual declaration in module
+
+================ Step #9 delete new service in pJs =================
 
 Building c
 Cleaning output files:
@@ -152,15 +209,25 @@ Cleaning output files:
 End of files
 Building pJs
 Compiling files:
+  c/src/serviceCNewHeader.kt
+End of files
+Marked as dirty by Kotlin:
+  c/src/serviceCNewHeader.kt
+Exit code: ABORT
+------------------------------------------
+COMPILATION FAILED
+[Module 'pJs' production] Expected function 'c_platformDependentCNew' has no actual declaration in module
+
+================ Step #10 delete new service in c =================
+
+Building c
+Building pJs
+Compiling files:
 End of files
 Exit code: OK
 ------------------------------------------
 Cleaning output files:
-  out/production/pJvm/META-INF/pJvm.kotlin_module
   out/production/pJvm/ServiceCNewHeaderKt.class
-End of files
-Cleaning output files:
-  out/production/pJvm/ServicePJvmNewImplKt.class
 End of files
 Building pJvm
 Compiling files:

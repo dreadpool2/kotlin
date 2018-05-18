@@ -1,0 +1,10 @@
+create new service in c
+create new service in pJvm
+create new service in pJs
+change new service in c
+change new service in pJvm: java
+change new service in pJvm: kotlin
+change new service in pJs
+delete new service in pJvm
+delete new service in pJs
+delete new service in c

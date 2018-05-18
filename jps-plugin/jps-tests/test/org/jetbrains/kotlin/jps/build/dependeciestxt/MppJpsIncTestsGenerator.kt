@@ -38,8 +38,6 @@ class MppJpsIncTestsGenerator(val txtFile: File, val txt: DependenciesTxt, val r
     val DependenciesTxt.Module.capitalName get() = name.capitalize()
 
     fun actualize() {
-        TestCase("initial").generateBaseContent()
-
         txt.modules.forEach {
             if (it.edit) {
                 TestCase("editing${it.capitalName}Kotlin").generateEditing(it, changeJavaClass = false)
@@ -70,6 +68,10 @@ class MppJpsIncTestsGenerator(val txtFile: File, val txt: DependenciesTxt, val r
         return false
     }
 
+    /**
+     * Set required content for [this] [File].
+     * All files without actual content will be deleted in [actualize].
+     */
     fun File.setFileContent(content: String) {
         addToActualWithParents()
 
@@ -100,8 +102,8 @@ class MppJpsIncTestsGenerator(val txtFile: File, val txt: DependenciesTxt, val r
         val serviceNameSuffix: String = "",
         val generateActualDeclarationsFor: List<DependenciesTxt.Module> = module.expectedBy.map { it.to },
         val generatePlatformDependent: Boolean = true,
-        val generateKtFile: Boolean = true,
-        val generateJavaFile: Boolean = true
+        var generateKtFile: Boolean = true,
+        var generateJavaFile: Boolean = true
     )
 
     open inner class TestCase(title: String) {
@@ -181,40 +183,59 @@ class MppJpsIncTestsGenerator(val txtFile: File, val txt: DependenciesTxt, val r
             }
 
             var step = 1
+            val steps = mutableListOf<String>()
 
-            fun step(body: () -> Unit) {
+            fun step(name: String, body: () -> Unit) {
                 body()
+                steps.add(name)
                 step++
             }
 
-            // step 1) create new common files, with implementations on all paltforms (jvm,js)x(client,server)
-            step {
+            step("create new service in ${commonModule.name}") {
                 generateCommonFile(commonModule, fileNameSuffix = ".new.$step")
-                implModules.forEach { implModule ->
+            }
+
+            implModules.forEach { implModule ->
+                step("create new service in ${implModule.name}") {
                     generatePlatformFile(implModule, fileNameSuffix = ".new.$step")
                 }
             }
 
-            // step 2) change platformIndependent in common files implementation
-            step {
+            step("change new service in ${commonModule.name}") {
                 generateCommonFile(commonModule, fileNameSuffix = ".touch.$step")
             }
 
-            // step 3) change platformDependent in jvm
-            // step 4) change platformDependent in js
             implModules.forEach { implModule ->
-                step {
-                    generatePlatformFile(implModule, fileNameSuffix = ".touch.$step")
+                if (implModule.isJvmModule) {
+                    implModule.contentsSettings.generateKtFile = false
+                    implModule.contentsSettings.generateJavaFile = true
+                    step("change new service in ${implModule.name}: java") {
+                        generatePlatformFile(implModule, fileNameSuffix = ".touch.$step")
+                    }
+
+                    implModule.contentsSettings.generateKtFile = true
+                    implModule.contentsSettings.generateJavaFile = false
+                    step("change new service in ${implModule.name}: kotlin") {
+                        generatePlatformFile(implModule, fileNameSuffix = ".touch.$step")
+                    }
+                } else {
+                    step("change new service in ${implModule.name}") {
+                        generatePlatformFile(implModule, fileNameSuffix = ".touch.$step")
+                    }
                 }
             }
 
-            // step 5) delete new service in all modules
-            step {
-                implModules.forEach { implModule ->
+            implModules.forEach { implModule ->
+                step("delete new service in ${implModule.name}") {
                     serviceKtFile(implModule, fileNameSuffix = ".delete.$step").setFileContent("")
-                    serviceKtFile(commonModule, fileNameSuffix = ".delete.$step").setFileContent("")
                 }
             }
+
+            step("delete new service in ${commonModule.name}") {
+                serviceKtFile(commonModule, fileNameSuffix = ".delete.$step").setFileContent("")
+            }
+
+            File(dir, "steps.txt").setFileContent(steps.joinToString("\n"))
         }
 
         fun generateBaseContent() {

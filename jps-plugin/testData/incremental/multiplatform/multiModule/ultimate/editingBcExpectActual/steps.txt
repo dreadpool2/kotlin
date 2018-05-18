@@ -1,0 +1,17 @@
+create new service in bc
+create new service in bJvmClient
+create new service in bJvmServer
+create new service in bJsClient
+create new service in bJsServer
+change new service in bc
+change new service in bJvmClient: java
+change new service in bJvmClient: kotlin
+change new service in bJvmServer: java
+change new service in bJvmServer: kotlin
+change new service in bJsClient
+change new service in bJsServer
+delete new service in bJvmClient
+delete new service in bJvmServer
+delete new service in bJsClient
+delete new service in bJsServer
+delete new service in bc
