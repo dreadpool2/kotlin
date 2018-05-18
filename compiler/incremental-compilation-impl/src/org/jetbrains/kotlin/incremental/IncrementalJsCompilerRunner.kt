@@ -80,11 +80,7 @@ class IncrementalJsCompilerRunner(
     override fun destinationDir(args: K2JSCompilerArguments): File =
         File(args.outputFile).parentFile
 
-    override fun calculateSourcesToCompile(
-        caches: IncrementalJsCachesManager,
-        changedFiles: ChangedFiles.Known,
-        args: K2JSCompilerArguments
-    ): CompilationMode {
+    override fun calculateSourcesToCompile(caches: IncrementalJsCachesManager, changedFiles: ChangedFiles.Known, args: K2JSCompilerArguments): CompilationMode {
         if (BuildInfo.read(lastBuildInfoFile) == null) return CompilationMode.Rebuild { "No information on previous build" }
 
         val libs = (args.libraries ?: "").split(File.pathSeparator).mapTo(HashSet()) { File(it) }
@@ -143,7 +139,7 @@ class IncrementalJsCompilerRunner(
             generatedFiles: List<GeneratedFile>,
             changesCollector: ChangesCollector
     ) {
-        val incrementalResults = services[IncrementalResultsConsumer::class.java] as IncrementalResultsConsumerImpl
+        val incrementalResults = services.get(IncrementalResultsConsumer::class.java) as IncrementalResultsConsumerImpl
 
         val jsCache = caches.platformCache
         jsCache.header = incrementalResults.headerMetadata
@@ -162,7 +158,7 @@ class IncrementalJsCompilerRunner(
         val freeArgsBackup = args.freeArgs
 
         try {
-            args.freeArgs += sourcesToCompile.map { it.absolutePath }
+            args.freeArgs += sourcesToCompile.map() { it.absolutePath }
             val exitCode = K2JSCompiler().exec(messageCollector, services, args)
             reporter.reportCompileIteration(sourcesToCompile, exitCode)
             return exitCode

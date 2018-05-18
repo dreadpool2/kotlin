@@ -349,8 +349,8 @@ class IncrementalJvmCompilerRunner(
             changesCollector: ChangesCollector
     ) {
         updateIncrementalCache(
-            generatedFiles, caches.platformCache, changesCollector,
-            services[JavaClassesTracker::class.java] as? JavaClassesTrackerImpl
+                generatedFiles, caches.platformCache, changesCollector,
+                services[JavaClassesTracker::class.java] as? JavaClassesTrackerImpl
         )
     }
 
